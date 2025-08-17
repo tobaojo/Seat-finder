@@ -19,13 +19,12 @@ function App() {
   };
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Guest Search</h1>
-
+      <img src="/find-your-seat.jpg" alt="" className="mx-auto my-4 md:w-1/2" />
       <div className="flex w-full max-w-md mb-6">
         <input
           type="text"
           placeholder="Search by first or last name"
-          className="flex-grow p-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-grow p-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#6e2d4b]"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -34,7 +33,7 @@ function App() {
         />
         <button
           onClick={() => searchFn(searchText)}
-          className="bg-blue-500 text-white px-4 rounded-r-lg hover:bg-blue-600 transition"
+          className="bg-[#6e2d4b] text-white px-4 rounded-r-lg hover:opacity-90 transition"
         >
           Search
         </button>
