@@ -19,7 +19,11 @@ function App() {
   };
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
-      <img src="/find-your-seat.jpg" alt="" className="mx-auto my-4 md:w-1/2" />
+      <img
+        src={`${import.meta.env.BASE_URL}find-your-seat.jpg`}
+        alt=""
+        className="mx-auto my-4 md:w-1/2"
+      />
       <div className="flex w-full max-w-md mb-6">
         <input
           type="text"
