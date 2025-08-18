@@ -68,7 +68,9 @@ function App() {
           </ul>
         </div>
       </div>
-      <p className="text-center text-gray-500 p-4">Created By Toba Ojo</p>
+      <p className="text-center text-gray-500">
+        Created By <span className="text-[#6e2d4b]">Toba Ojo</span>
+      </p>
     </div>
   );
 }
