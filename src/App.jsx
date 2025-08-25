@@ -1,4 +1,4 @@
-import guestData from "./csvjson.json";
+import guestData from "./csvjson1.json";
 import logo from "./assets/find-your-seat-new.svg";
 import { useState } from "react";
 
@@ -11,12 +11,12 @@ function App() {
       setFoundGuests([]);
       return;
     }
-    const test = guestData.filter((guest) => {
+    const results = guestData?.filter((guest) => {
       const fullName =
         `${guest["first name"]} ${guest["last name"]}`.toLowerCase();
       return fullName.includes(searchText.toLowerCase());
     });
-    setFoundGuests(test);
+    setFoundGuests(results);
   };
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -43,7 +43,18 @@ function App() {
             Search
           </button>
         </div>
-
+        <p className="text-center text-gray-500 m-3">
+          If you wish to share pictures please upload them{" "}
+          <span>
+            <a
+              href="https://www.dropbox.com/scl/fo/yyk16gtkdnf2w6zn6nbml/ADSm4_der-OIj8aUOejjEYw?rlkey=y74aqvz2qnay6njkw996wnsl8&e=2&st=4vb5ai73&dl=0"
+              target="_blank"
+              className="text-[#6e2d4b] underline"
+            >
+              here
+            </a>
+          </span>
+        </p>
         <div className="w-full max-w-md">
           {foundGuests.length === 0 && searchText && (
             <p className="text-center text-gray-500">No guests found</p>
@@ -60,7 +71,10 @@ function App() {
                     {guest["first name"]} {guest["last name"]}
                   </p>
                   <p className="text-gray-500 text-xl">
-                    Table: {guest["Table Number"]}
+                    Table:{" "}
+                    {guest["table"] === "n/a"
+                      ? "Please contact the event planner"
+                      : guest["table"]}
                   </p>
                 </div>
               </li>
@@ -68,9 +82,11 @@ function App() {
           </ul>
         </div>
       </div>
-      <p className="text-center text-gray-500">
-        Created By <span className="text-[#6e2d4b]">Toba Ojo</span>
-      </p>
+      <div className="flex flex-col">
+        <p className=" text-center text-gray-500">
+          Created By <span className="text-[#6e2d4b]">Toba Ojo</span>
+        </p>
+      </div>
     </div>
   );
 }
